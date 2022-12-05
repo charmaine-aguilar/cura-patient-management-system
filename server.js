@@ -26,7 +26,6 @@ let db,
 // Set the PORT number
 const PORT = 8000
 
-
 // =============
 // DATABASE
 // =============
@@ -99,7 +98,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         })
 
         // POST: from add patient form
-        app.post('/patients', (request, response) => {
+        app.post('/addPatients', (request, response) => {
             // Since we used urlencoded() in body-parser, we can now
             //   view the values in the body object
             // console.log(request.body);
