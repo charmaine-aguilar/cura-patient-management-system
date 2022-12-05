@@ -10,8 +10,9 @@ const app = express()
 //   to your mongoDB
 const MongoClient = require('mongodb').MongoClient
 
-// Lets server use the variables from .env
-require('dotenv').config()
+// Lets server use the environment variables from .env
+const dotenv = require("dotenv")
+dotenv.config()
 
 // Require and use cors so we can access API via localhost
 const cors = require('cors')
