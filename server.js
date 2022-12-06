@@ -85,8 +85,12 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
             // find() finds every object/document in the database
             // toArray() puts the documents into an Array
             // sort() sorts the array into an ascending order when sending the array to the html
-            const patientDocuments = await db.collection(collectionName).find().toArray()
-            response.render('index.ejs', { patients: patientDocuments })
+            try {
+                const patientDocuments = await db.collection(collectionName).find().toArray()
+                response.render('index.ejs', { patients: patientDocuments })
+            } catch(error){
+                console.log(error)
+            }
                 // results hold the array of objects retrieved from the collection in the database
                 // .then(results => {
                 //     // Render the index.ejs file
@@ -108,6 +112,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
             // THEN, redirect to the main page again
             // NOTE: We don't send the browser anything back so we just
             //   redirect it back to the main page
+            // console.log(request);
             db.collection(collectionName).insertOne(request.body)
                 .then(result => {
                     // console.log(result);
