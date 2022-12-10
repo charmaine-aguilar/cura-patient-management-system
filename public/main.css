@@ -6,8 +6,9 @@
 
     /* COLORS */
     --main-blue: #0476af;
+    --secondary-blue: #0d648f;
     --orange-yellow: #ffdc41;
-
+    --red: rgb(232, 44, 44);
     
 }
 
@@ -25,8 +26,12 @@ body, html {
 
 i {
     cursor: pointer;
-    font-size: 18px;
+    font-size: 22px;
 }
+
+    .fa-plus {
+        font: 8px;
+    }
 
 ul {
     list-style-type: none;
@@ -50,9 +55,12 @@ header {
 }
 
 button{
+    display: flex;
+    gap: 8px;
+    align-items: center;
     width: fit-content;
     font-size: 18px;
-    padding: 4px 8px;
+    padding: 4px 16px;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -63,7 +71,6 @@ button{
     /* padding-top: 64px; */
     padding: 64px 16px 0px 16px;
 }
-
 
 .formContainer {
     display: flex;
@@ -124,3 +131,16 @@ button{
     .patientTable tr:nth-child(even){
         background-color: rgb(221, 231, 241);
     }
+
+.patientInfo .actionButtons {
+    display: flex;
+    gap: 8px;
+}
+
+#updateButton {
+    color: var(--secondary-blue);
+}
+
+#deleteButton {
+    color: var(--red);
+}

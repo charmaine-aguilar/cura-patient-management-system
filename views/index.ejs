@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cure Patient Management System</title>
+    <title>Cura Patient Management System</title>
 
     <link rel="stylesheet" href="/main.css">
 </head>
@@ -17,14 +17,14 @@
     
         <section class="container formContainer">
             <h2>Add new patient</h2>
-            <form action="/patients" class="addPatientForm" method="POST">
+            <form action="/addPatients" class="addPatientForm" method="POST">
                     <label for="firstName">First Name<span class="required"> *</span></label>
                     <input type="text" name="firstName" required>
                     <label for="lastName">Last Name<span class="required"> *</span></label>
                     <input type="text" name="lastName" required>
                     <label for="dateOfbirth">Date of Birth<span class="required"> *</span></label>
                     <input type="date" name="dateOfbirth" required>
-                    <button type="submit" id="addPatient">Add patient</button>
+                    <button type="submit" id="addPatient"><i class="fa-solid fa-plus"></i>Add patient</button>
             </form>
         </section>
 
@@ -44,6 +44,7 @@
             <table class="patientTable">
                 <thead>
                     <tr>
+                        <th>ID Number</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Date of Birth</th>
@@ -53,11 +54,11 @@
                 <tbody>
                     <% for(let i = 0; i < patients.length; i++) { %>
                         <tr class="patientInfo">
+                            <td class="patientID"><%= patients[i].patientID %></td>
                             <td class="patientFirstName"><%= patients[i].firstName %></td>
                             <td class="patientLastName"><%= patients[i].lastName %></td>
                             <td class="patientDOB"><%= patients[i].dateOfbirth %></td>
-                            <!-- <td><i class="fa-regular fa-pen-to-square" id="updateButton"></i><i class="fa-regular fa-trash-can" id="deleteButton"></i></td> -->
-                            <td><i class="fa-regular fa-trash-can" id="deleteButton"></i></td>
+                            <td class="actionButtons"><i class="fa-regular fa-pen-to-square" id="updateButton"></i><i class="fa-regular fa-trash-can" id="deleteButton"></i></td>
                         </tr>
                     <% } %>
                 </tbody>
