@@ -79,7 +79,10 @@ function getOnePatient() {
     .then( response => {
         // Refresh the page
         // console.log(response);
-        // window.location.reload()
-        // console.log(response)
+        window.location.reload()
+    })
+    .then( response => {
+        // Refresh the page
+        console.log(response);
     })
 }

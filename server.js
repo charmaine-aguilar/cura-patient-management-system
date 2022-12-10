@@ -88,7 +88,7 @@ let generateID = _ => {
 app.get('/', async (request, response) => {
     try {
         const patientDocuments = await db.collection(collectionName).find().toArray()
-        response.render('index.ejs', { patients: patientDocuments })
+        response.render('index', { patients: patientDocuments })
     } catch(error){
         console.log(error)
     }
@@ -98,11 +98,11 @@ app.get('/', async (request, response) => {
 //  Hardcoded patientID for testing
 app.get('/patient', async (request, response) => {
     try {
-        const patient = await db.collection(collectionName).find({
+        const patient = await db.collection(collectionName).findOne({
             patientID: '26700'
         })
         console.log(patient)
-        response.render('patientInfo.ejs', { patient: patient })
+        response.render('patientInfo', { patient: patient })
     } catch (error) {
         console.log(error)
     }
