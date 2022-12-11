@@ -6,17 +6,17 @@ const app = express()
 // this is deprecated
 const bodyParser = require('body-parser')
 
-// Add mongodb and use the MongoClients class that allows the connection
-//   to your mongoDB
-const MongoClient = require('mongodb').MongoClient
 
 // Lets server use the environment variables from .env
 const dotenv = require("dotenv")
 dotenv.config()
 
+// Add mongodb and use the MongoClients class that allows the connection
+//   to your mongoDB
+const MongoClient = require('mongodb').MongoClient
+
 // Require and use cors so we can access API via localhost
 const cors = require('cors')
-const { LoggerLevel } = require('mongodb')
 
 // Define the database, connect using the database connection string, name database
 let db,
@@ -37,8 +37,9 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
         console.log('Connected to database');
         // Create new database and name it
         db = client.db(dbName)
-    })
 
+
+        
 // =============
 // TEMPLATE ENGINE
 // =============
@@ -175,4 +176,6 @@ app.delete('/deletePatient', async (request, response) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log(`SERVER STATUS: RUNNING on PORT ${PORT}`)
 })
+    })
+
 
