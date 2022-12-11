@@ -176,6 +176,9 @@ app.delete('/deletePatient', async (request, response) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log(`SERVER STATUS: RUNNING on PORT ${PORT}`)
 })
-    })
+
+
+})
+.catch(error => console.error(error))
 
 
