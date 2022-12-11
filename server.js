@@ -94,22 +94,7 @@ app.get('/', async (request, response) => {
     }
 })
 
-// GET: Get request to render patientInfo.ejs file
-//  Hardcoded patientID for testing
-app.get('/patient', async (request, response) => {
-    // Working code
-    // try {
-    //     const patient = await db.collection(collectionName).findOne({
-    //         patientID: '26700'
-    //     })
-    //     // console.log(patient)
-    //     response.render('patientInfo', { patient: patient })
-    //     // response.redirect('/patient')
-    // } catch (error) {
-    //     console.log(error)
-    // }
-})
-
+// GET: Get a specific patient's document and render the 'patientInfo.ejs' page containing the specific information
 app.get('/patient/patient_:patientID', async (request, response) => {
     // Working code
     try {
