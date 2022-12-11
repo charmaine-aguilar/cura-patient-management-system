@@ -78,7 +78,7 @@ app.use(cors())
 let generateID = _ => {
     let minimum = 10000
     let maximum = 50000
-    return (Math.floor(Math.random() * (maximum - minimum + 1)) + minimum).toString();
+    return (Math.floor(Math.random() * (maximum - minimum + 1)) + minimum).toString()
 }
 
 // =============
@@ -96,7 +96,7 @@ app.get('/', async (request, response) => {
 })
 
 // GET: Get a specific patient's document and render the 'patientInfo.ejs' page containing the specific information
-app.get('/patient/patient_:patientID', async (request, response) => {
+app.get('/patient/:patientID', async (request, response) => {
     // Working code
     try {
         let pID = request.params.patientID

@@ -72,12 +72,12 @@ function getOnePatient() {
     const birthDate = this.parentNode.parentNode.querySelector('.patientDOB').innerText
 
     // Trigger a GET request to render patientInfo.ejs
-    fetch(`/patient/patient_${pID}`, {
+    fetch(`/patient/${pID}`, {
         method: 'get',
         headers: { 'Content-Type': 'application/json' }
     })
     .then( response => {
         // Refresh the page to the new route
-        window.location = `/patient/patient_${pID}`
+        window.location = `/patient/${pID}`
     })
 }
