@@ -66,23 +66,18 @@ function getOnePatient() {
     console.log('Update click')
 
     // Grab the info from the table in the DOM
-    // const pID = this.parentNode.parentNode.querySelector('.patientID').textContent
-    // const fName = this.parentNode.parentNode.querySelector('.patientFirstName').textContent
-    // const lName = this.parentNode.parentNode.querySelector('.patientLastName').textContent
-    // const birthDate = this.parentNode.parentNode.querySelector('.patientDOB').innerText
+    const pID = this.parentNode.parentNode.querySelector('.patientID').textContent
+    const fName = this.parentNode.parentNode.querySelector('.patientFirstName').textContent
+    const lName = this.parentNode.parentNode.querySelector('.patientLastName').textContent
+    const birthDate = this.parentNode.parentNode.querySelector('.patientDOB').innerText
 
     // Trigger a GET request to render patientInfo.ejs
-    fetch('/patient', {
+    fetch(`/patient/patient_${pID}`, {
         method: 'get',
         headers: { 'Content-Type': 'application/json' }
     })
     .then( response => {
-        // Refresh the page
-        // console.log(response);
-        window.location.reload()
-    })
-    .then( response => {
-        // Refresh the page
-        console.log(response);
+        // Refresh the page to the new route
+        window.location = `/patient/patient_${pID}`
     })
 }
