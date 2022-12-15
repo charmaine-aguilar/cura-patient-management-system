@@ -22,13 +22,14 @@
                 <label for="firstName">Patient ID<span class="required"></label>
                 <input disabled type="text" name="patientID" required placeholder= <%= patient.patientID %>>
                 <label for="firstName">First Name<span class="required"></label>
-                <input disabled type="text" name="firstName" required placeholder= <%= patient.firstName %>>
+                <input disabled type="text" name="firstName" id="patientFirstName" required placeholder= <%= patient.firstName %>>
                 <label for="lastName">Last Name<span class="required"></label>
-                <input disabled type="text" name="lastName" required placeholder= <%= patient.lastName %>>
+                <input disabled type="text" name="lastName" id="patientLastName" required placeholder= <%= patient.lastName %>>
                 <label for="dateOfbirth">Date of Birth</label>
-                <input disabled type="text" name="dateOfbirth" required placeholder= <%= patient.dateOfbirth %>>
+                <input disabled type="date" name="dateOfbirth" id="patientDOBName" required value= <%= patient.dateOfbirth %>>
                 <section class="button-container">
-                    <button type="submit" id="editPatient" class="main-action-button"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
+                    <button type="submit" id="saveChanges" class="main-action-button">Save Changes</button>
+                    <button type="button" id="editPatient" class="main-action-button"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
                     <button type="reset" id="cancelEdit">Cancel</button>
                 </section>
                 

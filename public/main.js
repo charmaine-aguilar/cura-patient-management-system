@@ -68,6 +68,8 @@ function getOnePatient() {
     // Grab the ID of the selected patient
     const pID = this.parentNode.parentNode.querySelector('.patientID').textContent
 
+    console.log(pID);
+
     // Grab  input boxes from DOM
     const fNameInputBox = this.parentNode.parentNode.querySelector('.patientFirstName')
     const lNameInputBox = this.parentNode.parentNode.querySelector('.patientLastName')
@@ -85,3 +87,53 @@ function getOnePatient() {
 
     
 }
+
+
+
+
+// =================
+// PATIENTINFO.EJS INTERACTIONS
+// =================
+
+const enableEditButton = document.querySelector('#editPatient')
+
+function enableEditPatient() {
+
+    // MAIN GOAL:
+    // When you click the edit button, the input fields are able to be written on again
+
+    // STEPS:
+    // -> Grab the input field elements except patient ID
+    const inputFields = document.querySelectorAll('input')
+
+    console.log(inputFields);
+
+    // -> Loop from each node element and remove the 'disabled' attribute
+    for (let index = 1; index < inputFields.length; index++) {
+        let element = inputFields[index]
+        element.removeAttribute('disabled')
+        console.log(inputFields[index])
+    }
+
+    // -->  Set the placeholder values as the text content!
+    // ---> Let's grab the input field elements first
+    const firstNameInputField = document.querySelector('#patientFirstName')
+    const lastNameInputField = document.querySelector('#patientLastName')
+    const dobInputField = document.querySelector('#patientDOBName')
+
+    // ---> To do this, grab the individual input fields' placeholder values
+    const firstNamePlaceholder = firstNameInputField.getAttribute('placeholder')
+    const lastNamePlaceholder = lastNameInputField.getAttribute('placeholder')
+    const dobPlaceholder = dobInputField.getAttribute('placeholder')
+
+    // ---> Set the placeholder contents as the text contents of each field for better editing
+    firstNameInputField.value = firstNamePlaceholder
+    lastNameInputField.value = lastNamePlaceholder
+    // dobPlaceholder.valueAsDate = dobPlaceholder
+
+
+    // Hide editing button
+    enableEditButton.style.display = 'none'
+}
+
+enableEditButton.addEventListener('click', enableEditPatient)
