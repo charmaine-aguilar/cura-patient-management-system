@@ -101,13 +101,25 @@ app.get('/patient/:patientID', async (request, response) => {
     try {
         let pID = request.params.patientID
         const patient = await db.collection(collectionName).findOne({patientID: pID})
-        console.log(pID)
         response.render('patientInfo', { patient: patient })
         // response.redirect('/patient')
     } catch (error) {
         console.log(error)
     }
 })
+
+// GET: JSON of current patient selected
+// app.get('/patient/getPatient_:patientID', async (request, response) => {
+//     // Working code
+//     try {
+//         let pID = request.params.patientID
+//         const patient = await db.collection(collectionName).findOne({patientID: pID})
+//         console.log(patient)
+//         response.json(patient)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 // PLEASE IGNORE FOR NOW
 // app.post('/getPatient', async (request, response) => {

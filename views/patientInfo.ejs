@@ -16,20 +16,23 @@
         </header>
     
         <section class="container formContainer">
-            <h2>Patient Information</h2>
-            <p>Patient ID: <%= patient.patientID %></p>
-            <p>First Name: <%= patient.firstName %></p>
-            <p>Last Name: <%= patient.lastName %></p>
-            <p>Date of Birth: <%= patient.dateOfbirth %></p>
-            <!-- <form action="/addPatients" class="addPatientForm" method="POST">
-                    <label for="firstName">First Name<span class="required"></label>
-                    <input type="text" name="firstName" required>
-                    <label for="lastName">Last Name<span class="required"></label>
-                    <input type="text" name="lastName" required>
-                    <label for="dateOfbirth">Date of Birth</label>
-                    <input type="date" name="dateOfbirth" required>
-                    <button type="submit" id="addPatient"><i class="fa-solid fa-plus"></i>Add patient</button>
-            </form> -->
+            <h2>Patient Information</h2>    
+
+            <form action="/editPatients" class="general-form editPatientForm" method="UPDATE">
+                <label for="firstName">Patient ID<span class="required"></label>
+                <input disabled type="text" name="patientID" required placeholder= <%= patient.patientID %>>
+                <label for="firstName">First Name<span class="required"></label>
+                <input disabled type="text" name="firstName" required placeholder= <%= patient.firstName %>>
+                <label for="lastName">Last Name<span class="required"></label>
+                <input disabled type="text" name="lastName" required placeholder= <%= patient.lastName %>>
+                <label for="dateOfbirth">Date of Birth</label>
+                <input disabled type="text" name="dateOfbirth" required placeholder= <%= patient.dateOfbirth %>>
+                <section class="button-container">
+                    <button type="submit" id="editPatient" class="main-action-button"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
+                    <button type="reset" id="cancelEdit">Cancel</button>
+                </section>
+                
+            </form>
         </section>
 
     <!-- Font Awesome Icons -->

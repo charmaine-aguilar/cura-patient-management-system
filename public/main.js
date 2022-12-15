@@ -65,11 +65,13 @@ function getOnePatient() {
 
     console.log('Update click')
 
-    // Grab the info from the table in the DOM
+    // Grab the ID of the selected patient
     const pID = this.parentNode.parentNode.querySelector('.patientID').textContent
-    const fName = this.parentNode.parentNode.querySelector('.patientFirstName').textContent
-    const lName = this.parentNode.parentNode.querySelector('.patientLastName').textContent
-    const birthDate = this.parentNode.parentNode.querySelector('.patientDOB').innerText
+
+    // Grab  input boxes from DOM
+    const fNameInputBox = this.parentNode.parentNode.querySelector('.patientFirstName')
+    const lNameInputBox = this.parentNode.parentNode.querySelector('.patientLastName')
+    const birthDateInputBox = this.parentNode.parentNode.querySelector('.patientDOB')
 
     // Trigger a GET request to render patientInfo.ejs
     fetch(`/patient/${pID}`, {
@@ -80,4 +82,6 @@ function getOnePatient() {
         // Refresh the page to the new route
         window.location = `/patient/${pID}`
     })
+
+    
 }
