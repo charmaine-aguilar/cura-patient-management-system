@@ -80,7 +80,7 @@ function getOnePatient() {
         method: 'get',
         headers: { 'Content-Type': 'application/json' }
     })
-    .then( response => {
+    .then(response => {
         // Refresh the page to the new route
         window.location = `/patient/${pID}`
     })
@@ -95,7 +95,18 @@ function getOnePatient() {
 // PATIENTINFO.EJS INTERACTIONS
 // =================
 
+// EDIT BUTTON
 const enableEditButton = document.querySelector('#editPatient')
+
+// SAVE CHANGES BUTTON
+const saveChangesButton = document.querySelector('#saveChanges')
+
+// Grab the input field elements
+const patientIDInputField = document.querySelector('#patientID')
+const firstNameInputField = document.querySelector('#patientFirstName')
+const lastNameInputField = document.querySelector('#patientLastName')
+const dobInputField = document.querySelector('#patientDOBName')
+
 
 function enableEditPatient() {
 
@@ -116,24 +127,66 @@ function enableEditPatient() {
     }
 
     // -->  Set the placeholder values as the text content!
-    // ---> Let's grab the input field elements first
-    const firstNameInputField = document.querySelector('#patientFirstName')
-    const lastNameInputField = document.querySelector('#patientLastName')
-    const dobInputField = document.querySelector('#patientDOBName')
-
     // ---> To do this, grab the individual input fields' placeholder values
     const firstNamePlaceholder = firstNameInputField.getAttribute('placeholder')
     const lastNamePlaceholder = lastNameInputField.getAttribute('placeholder')
-    const dobPlaceholder = dobInputField.getAttribute('placeholder')
 
     // ---> Set the placeholder contents as the text contents of each field for better editing
     firstNameInputField.value = firstNamePlaceholder
     lastNameInputField.value = lastNamePlaceholder
-    // dobPlaceholder.valueAsDate = dobPlaceholder
-
-
+    
     // Hide editing button
     enableEditButton.style.display = 'none'
+
+    // Show the 'Save changes' button
+    saveChangesButton.style.display = 'block'
 }
 
+
+
+// Add an event listener to the 'Edit' button
 enableEditButton.addEventListener('click', enableEditPatient)
+
+
+// ==========
+// PUT
+// ==========
+
+// UPDATE: Request to update the field with new values
+saveChangesButton.addEventListener('click', updatePatient)
+
+async function updatePatient() {
+
+    console.log('patientID:' + patientIDInputField.value)
+    console.log('firstname:' + firstNameInputField.value)
+    console.log('lastname:' + lastNameInputField.value)
+    console.log('dob:' + dobInputField.value)
+    
+    // Entered/Edited value in input field is going to be set as the new value
+    dobInputField.value = dobInputField.value
+
+    // console.log(firstNameInputField.value + '' + lastNameInputField.value + '' + dobInputField.value);
+
+    // Send a PUT request to the server to update the database and use the new fields
+    try{
+        const response = await fetch('editPatient', {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(
+                {
+                    patientID: patientIDInputField.placeholder,
+                    patientFirstName: firstNameInputField.value,
+                    patientLastName: lastNameInputField.value,
+                    patientDOB: dobInputField.value
+                }
+            )
+        })
+        const data = await response.json()
+        // console.log(data)
+        // When response is good/update is successful, reload to this route
+        window.location = `/patient/${patientIDInputField.placeholder}`
+        // window.location.reload(true)
+    } catch(error){
+        console.log(error)
+    }
+}

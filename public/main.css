@@ -79,6 +79,10 @@ button{
         color: white;
     }
 
+    #saveChanges {
+        display: none;
+    }
+
 .container {
     max-width: 1366px;
     margin: 0 auto;

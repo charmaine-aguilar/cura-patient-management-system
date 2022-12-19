@@ -16,11 +16,12 @@
         </header>
     
         <section class="container formContainer">
+            <p><a href="">Home</a> > </p>
             <h2>Patient Information</h2>    
 
-            <form action="/editPatients" class="general-form editPatientForm" method="UPDATE">
+            <form class="general-form editPatientForm">
                 <label for="firstName">Patient ID<span class="required"></label>
-                <input disabled type="text" name="patientID" required placeholder= <%= patient.patientID %>>
+                <input disabled type="text" name="patientID" id="patientID" required placeholder= <%= patient.patientID %>>
                 <label for="firstName">First Name<span class="required"></label>
                 <input disabled type="text" name="firstName" id="patientFirstName" required placeholder= <%= patient.firstName %>>
                 <label for="lastName">Last Name<span class="required"></label>
@@ -28,12 +29,18 @@
                 <label for="dateOfbirth">Date of Birth</label>
                 <input disabled type="date" name="dateOfbirth" id="patientDOBName" required value= <%= patient.dateOfbirth %>>
                 <section class="button-container">
-                    <button type="submit" id="saveChanges" class="main-action-button">Save Changes</button>
+                    <button type="button" id="saveChanges" class="main-action-button">Save Changes</button>
                     <button type="button" id="editPatient" class="main-action-button"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
                     <button type="reset" id="cancelEdit">Cancel</button>
                 </section>
                 
             </form>
+        </section>
+
+        <section id="success-update-modal" class="modal">
+            <section class="modal-content">
+                <p></p>
+            </section>
         </section>
 
     <!-- Font Awesome Icons -->

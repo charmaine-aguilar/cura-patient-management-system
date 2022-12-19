@@ -167,6 +167,30 @@ app.post('/addPatients', (request, response) => {
     .catch(error => console.error(error))
 })
 
+app.put('/patient/editPatient', async (request, response) => {
+    try{
+        db.collection(collectionName).updateOne(
+            {
+                // Find the patient with this patientID in the database
+                patientID: request.body.patientID
+            },
+            {
+                // Set the values we grabbed from the request.body from client-side
+                $set: {
+                    firstName: request.body.patientFirstName, 
+                    lastName: request.body.patientLastName, 
+                    dateOfbirth: request.body.patientDOB 
+                }
+            }
+        )
+        // response.json('SUCCESS: Update success!')
+        // response.json('Data updated!')
+        response.json('Update success!')
+    } catch(error){
+        console.log(error)
+    }
+})
+
 app.delete('/deletePatient', async (request, response) => {
     try{
         db.collection(collectionName).deleteOne(
