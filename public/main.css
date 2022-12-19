@@ -24,6 +24,10 @@ body, html {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
 i {
     cursor: pointer;
     font-size: 20px;
@@ -87,8 +91,17 @@ button{
     max-width: 1366px;
     margin: 0 auto;
     /* padding-top: 64px; */
-    padding: 64px 16px 0px 16px;
+    padding: 32px 16px 64px 16px;
 }
+
+    .navigation {
+        padding: 32px 16px 0px 16px;
+    }
+
+    .navigation :is(a,p) {
+        color: var(--main-blue);
+        font-weight: bold;
+    }
 
 .formContainer {
     display: flex;

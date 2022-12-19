@@ -190,3 +190,32 @@ async function updatePatient() {
         console.log(error)
     }
 }
+
+
+// =======
+// Navigation
+// =======
+
+// go back to patient list when 'Home' is pressed
+
+
+// document.querySelector('#backToPatientList').addEventListener('click', goBackToPatientList)
+
+// async function goBackToPatientList() {
+    
+//     // .then(response => {
+//     //     // Refresh the page to the new route
+//     //     window.location = '/'
+//     // })
+
+//     try{
+//         const response = await fetch('/', {
+//             method: 'get',
+//             headers: { 'Content-Type': 'application/json' }
+//         })
+//         const data = await response.json()
+//         window.location = `/`
+//     } catch(error){
+//         console.log(error)
+//     }
+// }
