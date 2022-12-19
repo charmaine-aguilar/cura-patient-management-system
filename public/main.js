@@ -101,6 +101,9 @@ const enableEditButton = document.querySelector('#editPatient')
 // SAVE CHANGES BUTTON
 const saveChangesButton = document.querySelector('#saveChanges')
 
+// CANCEL EDIT BUTTON
+const cancelEditButton = document.querySelector('#cancelEdit')
+
 // Grab the input field elements
 const patientIDInputField = document.querySelector('#patientID')
 const firstNameInputField = document.querySelector('#patientFirstName')
@@ -140,6 +143,9 @@ function enableEditPatient() {
 
     // Show the 'Save changes' button
     saveChangesButton.style.display = 'block'
+
+    // Show the 'Cancel edit' button
+    cancelEditButton.style.display = 'block'
 }
 
 
